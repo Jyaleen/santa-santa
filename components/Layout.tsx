@@ -1,17 +1,20 @@
 import React, { ReactNode } from "react";
 import Header from "./Header";
+// import snow from  "./snow";
 
 type Props = {
   children: ReactNode;
 };
 
 const Layout: React.FC<Props> = (props) => (
+  // <div dangerouslySetInnerHTML={{__html: snow}}>
   <div>
     <Header />
     <div className="layout">{props.children}</div>
     <style jsx global>{`
       html {
         box-sizing: border-box;
+        head: <script src="snowstorm.js"></script>;
       }
 
       *,
@@ -27,7 +30,7 @@ const Layout: React.FC<Props> = (props) => (
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
           "Segoe UI Symbol";
-        background: rgba(0, 0, 0, 0.05);
+        background: rgba(20, 40, 73);
       }
 
       input,
