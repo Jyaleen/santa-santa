@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { signOut, useSession } from 'next-auth/react';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 const Header: React.FC = () => {
   const router = useRouter();
@@ -46,7 +46,7 @@ const Header: React.FC = () => {
       <div className="left">
         <Link href="/">
           <a className="bold" data-active={isActive('/')}>
-          Wishlists
+            Wishlists
           </a>
         </Link>
         <style jsx>{`
@@ -85,9 +85,10 @@ const Header: React.FC = () => {
   if (!session) {
     right = (
       <div className="right">
-        <Link href="/api/auth/signin">
-          <a data-active={isActive('/signup')}>Log in</a>
-        </Link>
+        <a href="/api/auth/signin">
+          Log in
+          {/* <a data-active={isActive('/signup')}>Log in</a> */}
+        </a>
         <style jsx>{`
           a {
             text-decoration: none;
@@ -118,7 +119,7 @@ const Header: React.FC = () => {
       <div className="left">
         <Link href="/">
           <a className="bold" data-active={isActive('/')}>
-          Wishlists
+            Wishlists
           </a>
         </Link>
         <Link href="/drafts">

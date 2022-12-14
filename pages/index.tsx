@@ -3,6 +3,7 @@ import { GetStaticProps } from "next"
 import Layout from "../components/Layout"
 import Post, { PostProps } from "../components/Post"
 import prisma from '../lib/prisma';
+import { Typography } from "@material-ui/core";
 
 export const getStaticProps: GetStaticProps = async () => {
   const feed = await prisma.post.findMany({
@@ -27,6 +28,7 @@ const Blog: React.FC<Props> = (props) => {
   return (
     <Layout>
       <div className="page">
+        {/* <Typography variant={'h1'}>Promoboxx Wishlists!</Typography> */}
         <h1 className="title">Promoboxx Wishlists</h1>
         <main>
           {props.feed.map((post) => (
@@ -55,7 +57,7 @@ const Blog: React.FC<Props> = (props) => {
         }
       `}</style>
     </Layout>
-    
+
   )
 }
 
