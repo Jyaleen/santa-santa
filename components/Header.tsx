@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import Kitsch from './Kitsch';
 
 const Header: React.FC = () => {
   const router = useRouter();
@@ -86,8 +87,7 @@ const Header: React.FC = () => {
     right = (
       <div className="right">
         <a href="/api/auth/signin">
-          Log in
-          {/* <a data-active={isActive('/signup')}>Log in</a> */}
+          <a data-active={isActive('/signup')}>Log in</a>
         </a>
         <style jsx>{`
           a {
@@ -123,7 +123,7 @@ const Header: React.FC = () => {
           </a>
         </Link>
         <Link href="/drafts">
-          <a data-active={isActive('/drafts')}>My drafts</a>
+          <a data-active={isActive('/drafts')}>My List</a>
         </Link>
         <style jsx>{`
           .bold {
